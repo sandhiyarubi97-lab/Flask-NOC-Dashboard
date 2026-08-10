@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NOC DASHBORD</title>
+        <link rel="stylesheet"  href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>NOC Dashboard</h1>
+    <p class="alert">Last Updated: Today</p>
+    <table>
+        <tr>
+            <th>server Name</th>
+            <th>Status</th>
+            <th>CPU Usage</th>
+        </tr>
+        {% for server in servers %}
+        <tr>
+            <td>{{ server.name }}</td>
+            <td>
+                {% if server.status == "UP" %}
+                <span class="status-up">{{ server.status }}</span>
+                {% else %}
+                <span class="status-DOWN">{{ server.status }}</span>
+                {% endif %}
+            </td>
+            <td>{{ server.cpu }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2 style="margin-top: 40px;">Add New Server</h2>
+    <form method="POST">
+        <input type="text" name="server_name" placeholder="Server Name" required>
+
+        <select name="server_status">
+            <option value="UP">UP</option>
+            <option value="DOWN">DOWN</option>
+        </select>
+
+        <button type="submit">Add Server</button>
+    </form>
+</div>
+
+</body>
+</html>
