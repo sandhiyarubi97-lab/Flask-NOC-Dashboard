@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="10">
+    <title>NOC Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>NOC Dashboard</h1>
+    <p style="color: gray;">Last Updated: {{ last_update }}</p>
+    <p class="alert">Last Updated: Today</p>
+    <h2 style="color: green">Auto Refresh Every 10 seconds</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Server Name</th>
+            <th>Status</th>
+            <th>CPU</th>
+            <th>Action</th>
+        </tr>
+        {% for server in servers %}
+        <tr>
+            <td>{{ server.id }}</td>
+            <td>{{ server.name }}</td>
+            <td class="{% if server.status == 'DOWN' %} down{% else %}up{% endif %}">
+                {{ server.status }}
+            </td>
+            <td>{{ server.CPU }}</td>
+            <td><a href="delete/>{{ server.id }}" class="delete-btn">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>
