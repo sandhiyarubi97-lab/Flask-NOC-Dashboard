@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NOC Dashbaord</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <h1>NOC Dashboard</h1>
+    <p class="alert">Last Updated: Today</p>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Server Name</th>
+            <th>Status</th>
+            <th>CPU</th>
+            <th>Action</th>
+        </tr>
+        {% for server in servers %}
+        <tr>
+            <td>{{ server.id }}</td>
+            <td>{{ server.name }}</td>
+            <td class="{% if server.status == 'DOWN' %} down{% else %}up{% endif %}">
+                {{ server.status }}
+            </td>
+            <td>{{ server.CPU }}</td>
+            <td><a href="delete/>{{ server.id }}" class="delete-btn">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+</body>
+</html>
