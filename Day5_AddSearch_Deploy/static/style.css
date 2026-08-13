@@ -1,0 +1,126 @@
+body {
+font-family: Arial, sans-serif;
+background-color: #f4f4f4;
+margin: 0;
+padding: 20px;
+}
+
+.container {
+width: 80%;
+max-width: 900px;
+margin: 30px auto;
+padding: 20px;
+background-color: white;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+color: #333;
+text-align: center;
+border-bottom: 2px solid #007bff;
+padding-bottom: 10px;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+margin: 20px 0;
+}
+
+th, td {
+padding: 12px;
+text-align: left;
+order-bottom: 1px solid #ddd;
+}
+
+th {
+background-color: #007bff;
+color: white;
+}
+
+.status-up {
+background-color: green;
+color: white;
+padding: 5px 10px;
+border-radius: 5px;
+}
+
+.status-down {
+background-color: red;
+color: white;
+padding: 5px 10px;
+border-radius: 5px;
+}
+
+.alert {
+background-color: #ffc107
+color: black;
+padding: 10px;
+border-radius: 5px;
+text-align: center;
+}
+
+.btn {
+background-color: #007bff;
+color: white;
+padding: 12px 20px;
+border: none;
+width: 100%;
+font-size: 16px;
+cursor: pointer;
+}
+
+.btn:hover {
+background-color: #0056b3;
+}
+
+form { margin-top: 20px; }
+input, select, button {
+padding: 10px;
+margin: 5px;
+border-radius: 5px;
+border: 1px solid #ccc;
+}
+
+button {
+background: #4CAF50;
+color: white;
+cursor: pointer;
+}
+
+
+button:hover { background: #4a049; }
+
+.up {
+color: white;
+background: #4CAF50;
+padding: 5px 10px;
+border-radius: 20px;
+font-weight: bold;
+}
+
+.down {
+color: white;
+background: #f44336;
+padding: 5px 10px;
+border-radius: 20px;
+font-weight: bold;
+animation: blink 1s infinite;
+}
+
+@keyframes blink {
+0% { opacity: 1; }
+50% { opacity: 0.3; }
+100% { opacity: 1; }
+}
+
+.delete-btn {
+background: #f44336;
+color: white;
+padding: 5px 10px;
+text-decoration: none;
+border-radius: 5px;
+}
+
+.delete-btn:hover { background: #d32f2f; }
